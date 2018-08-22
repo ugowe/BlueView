@@ -6,7 +6,12 @@
 //  Copyright © 2018 Joe. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import VimeoNetworking
+import VimeoUpload
+
+
 
 class ViewController: UIViewController {
 

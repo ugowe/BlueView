@@ -1,0 +1,44 @@
+{
+  "name": "VimeoUpload",
+  "version": "1.0.2",
+  "summary": "The Vimeo iOS/OSX Upload SDK.",
+  "description": "An iOS/OSX library for uploading videos to Vimeo. The library supports the existing server-side upload flow. It also supports a new private server-side upload flow that will soon be made public. VimeoUpload's core can be extended to support any NSURLSession(background)Task workflow.'",
+  "homepage": "https://github.com/vimeo/VimeoUpload",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Alfie Hanssen": "alfie@vimeo.com",
+    "Rob Huebner": "robh@vimeo.com",
+    "Gavin King": "gavin@vimeo.com",
+    "Nicole Lehrer": "nicole@vimeo.com",
+    "Chris Larsen": "chrisl@vimeo.com"
+  },
+  "social_media_url": "http://twitter.com/vimeo",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/vimeo/VimeoUpload.git",
+    "tag": "1.0.2"
+  },
+  "source_files": "VimeoUpload/**/*.{swift}",
+  "requires_arc": true,
+  "ios": {
+    "frameworks": [
+      "Foundation",
+      "AVFoundation",
+      "AssetsLibrary",
+      "Photos",
+      "MobileCoreServices",
+      "UIKit",
+      "CoreGraphics"
+    ]
+  },
+  "dependencies": {
+    "VimeoNetworking": [
+
+    ]
+  }
+}

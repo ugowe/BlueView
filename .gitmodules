@@ -1,0 +1,6 @@
+[submodule "Submodules/VimeoNetworking"]
+	path = Submodules/VimeoNetworking
+	url = git@github.com:vimeo/VimeoNetworking.git
+[submodule "Submodules/VimeoUpload"]
+	path = Submodules/VimeoUpload
+	url = git@github.com:vimeo/VimeoUpload.git

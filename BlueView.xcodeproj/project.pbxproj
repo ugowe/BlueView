@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4E3638E7957D5859DBDCC01 /* Pods_BlueView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BE3771123796668F5FCB7E /* Pods_BlueView.framework */; };
 		D8D436A6212DC66A00821044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D436A5212DC66A00821044 /* AppDelegate.swift */; };
 		D8D436A8212DC66A00821044 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D436A7212DC66A00821044 /* ViewController.swift */; };
 		D8D436AB212DC66A00821044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D436A9212DC66A00821044 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		164F60D490BC0019D8E19A4D /* Pods-BlueView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlueView/Pods-BlueView.debug.xcconfig"; sourceTree = "<group>"; };
+		A867585313056F26BEE4C052 /* Pods-BlueView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueView.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlueView/Pods-BlueView.release.xcconfig"; sourceTree = "<group>"; };
 		D8D436A2212DC66A00821044 /* BlueView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D436A5212DC66A00821044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8D436A7212DC66A00821044 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,8 @@
 		D8D436AC212DC66B00821044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8D436AF212DC66B00821044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8D436B1212DC66B00821044 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8D436B8212DD2FD00821044 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		E9BE3771123796668F5FCB7E /* Pods_BlueView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlueView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +34,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4E3638E7957D5859DBDCC01 /* Pods_BlueView.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C901DD8B5D06D9DE2BED911 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				164F60D490BC0019D8E19A4D /* Pods-BlueView.debug.xcconfig */,
+				A867585313056F26BEE4C052 /* Pods-BlueView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		99B3B90944E929B9E6B3FF78 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE3771123796668F5FCB7E /* Pods_BlueView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D8D43699212DC66A00821044 = {
 			isa = PBXGroup;
 			children = (
 				D8D436A4212DC66A00821044 /* BlueView */,
 				D8D436A3212DC66A00821044 /* Products */,
+				6C901DD8B5D06D9DE2BED911 /* Pods */,
+				99B3B90944E929B9E6B3FF78 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -59,6 +84,7 @@
 				D8D436A9212DC66A00821044 /* Main.storyboard */,
 				D8D436AC212DC66B00821044 /* Assets.xcassets */,
 				D8D436AE212DC66B00821044 /* LaunchScreen.storyboard */,
+				D8D436B8212DD2FD00821044 /* Header.h */,
 				D8D436B1212DC66B00821044 /* Info.plist */,
 			);
 			path = BlueView;
@@ -71,9 +97,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D8D436B4212DC66B00821044 /* Build configuration list for PBXNativeTarget "BlueView" */;
 			buildPhases = (
+				8FBC7472FD942703BBC34EAB /* [CP] Check Pods Manifest.lock */,
 				D8D4369E212DC66A00821044 /* Sources */,
 				D8D4369F212DC66A00821044 /* Frameworks */,
 				D8D436A0212DC66A00821044 /* Resources */,
+				1C2C8982D06F203E25BB2952 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +157,51 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C2C8982D06F203E25BB2952 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BlueView/Pods-BlueView-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/PlayerKit/PlayerKit.framework",
+				"${BUILT_PRODUCTS_DIR}/VimeoNetworking/VimeoNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/VimeoUpload/VimeoUpload.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlayerKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VimeoNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VimeoUpload.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlueView/Pods-BlueView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FBC7472FD942703BBC34EAB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlueView-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D8D4369E212DC66A00821044 /* Sources */ = {
@@ -219,6 +292,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -272,12 +346,14 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		D8D436B5212DC66B00821044 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 164F60D490BC0019D8E19A4D /* Pods-BlueView.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -296,6 +372,7 @@
 		};
 		D8D436B6212DC66B00821044 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A867585313056F26BEE4C052 /* Pods-BlueView.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

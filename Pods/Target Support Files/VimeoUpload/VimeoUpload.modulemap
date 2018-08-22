@@ -1,0 +1,6 @@
+framework module VimeoUpload {
+  umbrella header "VimeoUpload-umbrella.h"
+
+  export *
+  module * { export * }
+}
