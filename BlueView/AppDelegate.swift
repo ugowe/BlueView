@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import VimeoNetworking
+import AFNetworking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,32 +17,86 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		
+		// Starting the authentication process
+		let authenticationController = AuthenticationController(client: VimeoClient.defaultClient, appConfiguration: AppConfiguration.defaultConfiguration)
+		
+		// First, we try to load a preexisting account
+		let loadedAccount: VIMAccount?
+		do {
+			loadedAccount = try authenticationController.loadUserAccount()
+		} catch let error {
+			loadedAccount = nil
+			print("Error loading account \(error)")
+		}
+		
+		// If we didn't find an account to load or loading failed, we'll authenticate using client credentials
+		if loadedAccount == nil {
+			authenticationController.clientCredentialsGrant { (result) in
+				switch result {
+				case .success(result: let account):
+					print("Authenticated successfully: \(account)")
+				case .failure(error: let error):
+					print("Failure authenticating: \(error)")
+					
+					let title = "Client Credentials Authentication Failed"
+					let message = "Make sure that your client identifier and client secret are set correctly"
+					
+					let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+					let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+					alert.addAction(okAction)
+					// viewController .present(alert, animated: true, completion: nil)
+					print("⚡️" + title + ": " + message)
+					
+					
+				}
+			}
+		}
+		
 		return true
 	}
 
-	func applicationWillResignActive(_ application: UIApplication) {
-		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-		// Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+	func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+		// This handles the redirect URL opened by Vimeo when you complete code grant authentication.
+		// If your app isn't opening after you accept permissions on Vimeo, check that your app has the correct URL scheme registered.
+		// See the README for more information.
+		
+		AuthenticationController(client: VimeoClient.defaultClient, appConfiguration: AppConfiguration.defaultConfiguration).codeGrant(responseURL: url) { result in
+			
+			switch result {
+			case .success(result: let account):
+				print("Authenticated successfully: \(account)")
+			case .failure(error: let error):
+				print("Failure authenticating: \(error)")
+				
+				let title = "Code Grant Authentication Failed"
+				let message = "Make sure that your redirect URI is added to the dev portal"
+				
+				let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+				let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+				alert.addAction(action)
+				self.window?.rootViewController?.present(alert, animated: true, completion: nil)
+				print("💥" + title + ": " + message)
+			}
+		}
+		
+		return true
 	}
-
-	func applicationDidEnterBackground(_ application: UIApplication) {
-		// Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-		// If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-	}
-
-	func applicationWillEnterForeground(_ application: UIApplication) {
-		// Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-	}
-
-	func applicationDidBecomeActive(_ application: UIApplication) {
-		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-	}
-
-	func applicationWillTerminate(_ application: UIApplication) {
-		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-	}
-
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

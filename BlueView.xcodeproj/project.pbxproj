@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A4E3638E7957D5859DBDCC01 /* Pods_BlueView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9BE3771123796668F5FCB7E /* Pods_BlueView.framework */; };
+		D8468F1A212DE71C00AB47C4 /* VideoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8468F19212DE71C00AB47C4 /* VideoTableViewController.swift */; };
+		D8468F1C212DF0E200AB47C4 /* VimeoClient+Shared.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8468F1B212DF0E200AB47C4 /* VimeoClient+Shared.swift */; };
+		D8468F1E212DFBA300AB47C4 /* NewVimeoUploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8468F1D212DFBA300AB47C4 /* NewVimeoUploader.swift */; };
+		D8468F20212F128800AB47C4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8468F1F212F128800AB47C4 /* Secrets.swift */; };
 		D8D436A6212DC66A00821044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D436A5212DC66A00821044 /* AppDelegate.swift */; };
-		D8D436A8212DC66A00821044 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D436A7212DC66A00821044 /* ViewController.swift */; };
+		D8D436A8212DC66A00821044 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D436A7212DC66A00821044 /* VideoViewController.swift */; };
 		D8D436AB212DC66A00821044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D436A9212DC66A00821044 /* Main.storyboard */; };
 		D8D436AD212DC66B00821044 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8D436AC212DC66B00821044 /* Assets.xcassets */; };
 		D8D436B0212DC66B00821044 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D436AE212DC66B00821044 /* LaunchScreen.storyboard */; };
@@ -18,9 +22,13 @@
 /* Begin PBXFileReference section */
 		164F60D490BC0019D8E19A4D /* Pods-BlueView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlueView/Pods-BlueView.debug.xcconfig"; sourceTree = "<group>"; };
 		A867585313056F26BEE4C052 /* Pods-BlueView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlueView.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlueView/Pods-BlueView.release.xcconfig"; sourceTree = "<group>"; };
+		D8468F19212DE71C00AB47C4 /* VideoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTableViewController.swift; sourceTree = "<group>"; };
+		D8468F1B212DF0E200AB47C4 /* VimeoClient+Shared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "VimeoClient+Shared.swift"; sourceTree = "<group>"; };
+		D8468F1D212DFBA300AB47C4 /* NewVimeoUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewVimeoUploader.swift; sourceTree = "<group>"; };
+		D8468F1F212F128800AB47C4 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		D8D436A2212DC66A00821044 /* BlueView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D436A5212DC66A00821044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8D436A7212DC66A00821044 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D8D436A7212DC66A00821044 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		D8D436AA212DC66A00821044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D8D436AC212DC66B00821044 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8D436AF212DC66B00821044 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -80,7 +88,11 @@
 			isa = PBXGroup;
 			children = (
 				D8D436A5212DC66A00821044 /* AppDelegate.swift */,
-				D8D436A7212DC66A00821044 /* ViewController.swift */,
+				D8468F1D212DFBA300AB47C4 /* NewVimeoUploader.swift */,
+				D8468F1B212DF0E200AB47C4 /* VimeoClient+Shared.swift */,
+				D8468F19212DE71C00AB47C4 /* VideoTableViewController.swift */,
+				D8468F1F212F128800AB47C4 /* Secrets.swift */,
+				D8D436A7212DC66A00821044 /* VideoViewController.swift */,
 				D8D436A9212DC66A00821044 /* Main.storyboard */,
 				D8D436AC212DC66B00821044 /* Assets.xcassets */,
 				D8D436AE212DC66B00821044 /* LaunchScreen.storyboard */,
@@ -208,7 +220,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8D436A8212DC66A00821044 /* ViewController.swift in Sources */,
+				D8468F1C212DF0E200AB47C4 /* VimeoClient+Shared.swift in Sources */,
+				D8468F20212F128800AB47C4 /* Secrets.swift in Sources */,
+				D8468F1E212DFBA300AB47C4 /* NewVimeoUploader.swift in Sources */,
+				D8D436A8212DC66A00821044 /* VideoViewController.swift in Sources */,
+				D8468F1A212DE71C00AB47C4 /* VideoTableViewController.swift in Sources */,
 				D8D436A6212DC66A00821044 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
