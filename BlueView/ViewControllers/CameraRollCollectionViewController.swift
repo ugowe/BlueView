@@ -31,7 +31,7 @@ class CameraRollCollectionViewController: UICollectionViewController, UICollecti
 		self.cameraRollAssetHelper = PHAssetHelper()
 		self.videoAssets = self.loadVideoAssets()
 		
-		//self.setupNavigationBar()
+		self.setupNavigationBar()
 		self.setupCollectionView()
     }
 	
@@ -68,6 +68,7 @@ class CameraRollCollectionViewController: UICollectionViewController, UICollecti
 		let layout = self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout
 		layout?.minimumInteritemSpacing = CameraRollCollectionViewController.collectionViewSpacing
 		layout?.minimumLineSpacing = CameraRollCollectionViewController.collectionViewSpacing
+
 	}
 
     // MARK: UICollectionViewDataSource
@@ -154,7 +155,37 @@ class CameraRollCollectionViewController: UICollectionViewController, UICollecti
 	}
 	
 	func setupNavigationBar() {
-		self.title = "Camera Roll"
+//		let navigationBar = UINavigationController(rootViewController: self)
+//		navigationBar.navigationBar.barTintColor = UIColor.blue
+		let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: view.frame.size.width, height: 100)) // Offset by 20 pixels vertically to take the status bar into account
+		
+		//navigationBar.barTintColor = UIColor.black
+		navigationBar.barStyle = .black
+		navigationBar.tintColor = .white
+		navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+		
+		// Create a navigation item with a title
+		let navigationItem = UINavigationItem()
+		navigationItem.title = "Add Video"
+		
+		// Create left and right button for navigation item
+		//let leftButton =  UIBarButtonItem(title: "Save", style:   .plain, target: self, action: #selector(ViewController.btn_clicked(_:)))
+		
+		//let rightButton = UIBarButtonItem(title: "Right", style: .plain, target: self, action: nil)
+		let cancelButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(dismissViewController))
+		
+		// Create two buttons for the navigation item
+		navigationItem.leftBarButtonItem = cancelButton
+		
+		// Assign the navigation item to the navigation bar
+		navigationBar.items = [navigationItem]
+		
+		// Make the navigation bar a subview of the current view controller
+		self.view.addSubview(navigationBar)
+	}
+	
+	@objc private func dismissViewController() {
+		dismiss(animated: true, completion: nil)
 	}
 	
 	func didSelect(_ asset: VIMPHAsset) {
