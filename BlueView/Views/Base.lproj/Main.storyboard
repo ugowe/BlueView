@@ -26,6 +26,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="78.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="nGO-oy-QIa" kind="show" identifier="showVideo" id="2mv-le-PwO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -48,7 +51,6 @@
                     <connections>
                         <outlet property="logInButton" destination="sfg-vJ-YRA" id="W2w-6v-gw0"/>
                         <outlet property="uploadButton" destination="At5-Ya-XSj" id="eCs-Ug-jRo"/>
-                        <segue destination="nGO-oy-QIa" kind="show" identifier="showVideo" id="ak4-2J-ZLP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vRq-YV-tFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -70,7 +72,8 @@
                                     <constraint firstAttribute="height" constant="44" id="08V-mU-cz1"/>
                                     <constraint firstAttribute="width" constant="80" id="zBG-Sh-Wbm"/>
                                 </constraints>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <state key="normal" title="Play">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

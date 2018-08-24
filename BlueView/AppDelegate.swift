@@ -18,6 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		
+		AFNetworkReachabilityManager.shared().startMonitoring()
+		
+		// Ensure init is called on launch
+		NewVimeoUploader.sharedInstance?.applicationDidFinishLaunching()
+		
 		// Starting the authentication process
 		let authenticationController = AuthenticationController(client: VimeoClient.defaultClient, appConfiguration: AppConfiguration.defaultConfiguration)
 		
@@ -47,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 					alert.addAction(okAction)
 					// viewController .present(alert, animated: true, completion: nil)
 					print("⚡️" + title + ": " + message)
-					
-					
 				}
 			}
 		}
@@ -81,6 +84,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		
 		return true
+	}
+	
+	func application(_ application: UIApplication, handleEventsForBackgroundURLSession identifier: String, completionHandler: @escaping () -> Void) {
+		
+		guard let descriptorManager = NewVimeoUploader.sharedInstance?.descriptorManager else { return }
+		
+		if descriptorManager.canHandleEventsForBackgroundURLSession(withIdentifier: identifier) {
+			descriptorManager.handleEventsForBackgroundURLSession(completionHandler: completionHandler)
+		}
 	}
 
 }

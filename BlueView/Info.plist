@@ -4,6 +4,11 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -22,10 +27,10 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>vimeo51e783f7f7337eb639a6731f5121244958e20003</string>
+			<string>vimeo11e3aebe216b71b7c50fd91c1d9e0f63628c3ba1</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>vimeo51e783f7f7337eb639a6731f5121244958e20003</string>
+				<string>vimeo11e3aebe216b71b7c50fd91c1d9e0f63628c3ba1</string>
 			</array>
 		</dict>
 	</array>

@@ -13,26 +13,36 @@ import VimeoUpload
 import VimeoNetworking
 import AVFoundation
 
-class VideoViewController: UIViewController {
+class VideoViewController: UIViewController, PlayerDelegate {
 	
 	@IBOutlet weak var playButton: UIButton!
 	@IBOutlet weak var slider: UISlider!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 	
 	private let player = RegularPlayer()
-	var videoObject: VIMVideo? {
-		didSet {
-			self.configurePlayerView()
-		}
-	}
-	
+	var videoObject: VIMVideo?
+//	{
+//		didSet {
+//			self.configurePlayerView()
+//		}
+//	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		player.delegate = self
+
 		self.addPlayerToView()
-		let videoLink = videoObject?.link
-//		self.player.set(AVURLAsset(url: videoLink))
+		let video = self.videoObject
+		
+//		let videoFile = videoObject?.files as! [[String:Any]]
+//		let firstVideoFile = videoFile[1]
+//		let videoLink = firstVideoFile["link"] as! String
+//		print(videoLink)
+//		let videoURL = URL(string: videoLink)
+//		self.player.set(AVURLAsset(url: videoURL!))
+		
+//		let videoURL = URL(string: "https://player.vimeo.com/external/286220548.hd.mp4?s=f9d21d0b3d3a3e6140d7dff53cad256876cccac3&profile_id=174&oauth2_token_id=1107342387")
+//		self.player.set(AVURLAsset(url: videoURL!))
 		
 	}
 	
@@ -55,6 +65,8 @@ class VideoViewController: UIViewController {
 
 	@IBAction func tappedPlay(_ sender: Any) {
 		self.player.playing ? self.player.pause() : self.player.play()
+		let playButtonTitle = self.player.playing ? "Pause" : "Play"
+		self.playButton.setTitle(playButtonTitle, for: .normal)
 	}
 	
 	@IBAction func changeSliderValue(_ sender: Any) {
@@ -62,11 +74,9 @@ class VideoViewController: UIViewController {
 		let time = value * self.player.duration
 		self.player.seek(to: time)
 	}
-}
 
-// MARK: VideoPlayerDelegate
 
-extension VideoViewController: PlayerDelegate {
+	// MARK: VideoPlayerDelegate
 	
 	func playerDidUpdateState(player: Player, previousState: PlayerState) {
 		self.activityIndicator.isHidden = true
@@ -81,7 +91,7 @@ extension VideoViewController: PlayerDelegate {
 	}
 	
 	func playerDidUpdatePlaying(player: Player) {
-		self.playButton.isSelected = player.playing
+//		self.playButton.isSelected = player.playing
 	}
 	
 	func playerDidUpdateTime(player: Player) {

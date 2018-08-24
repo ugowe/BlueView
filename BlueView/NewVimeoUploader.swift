@@ -16,7 +16,7 @@ class NewVimeoUploader: VimeoUploader<UploadDescriptor> {
 	}
 	
 	static let sharedInstance = NewVimeoUploader(backgroundSessionIdentifier: "com.vimeo.upload") { () -> String? in
-		return "YOUR_OAUTH_TOKEN" // See README for details on how to obtain and OAuth token
+		return Secrets.accessToken
 	}
 	
 	// MARK: - Initialization
