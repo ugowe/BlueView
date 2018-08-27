@@ -60,7 +60,7 @@
         <!--Video Settings View Controller-->
         <scene sceneID="k55-EX-DSY">
             <objects>
-                <viewController id="egk-iO-ijg" customClass="VideoSettingsViewController" customModule="BlueView" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="videoSettingsID" id="egk-iO-ijg" customClass="VideoSettingsViewController" customModule="BlueView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sTs-Lc-8qQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -112,7 +112,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgJ-cx-iqP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1356" y="884.70764617691157"/>
+            <point key="canvasLocation" x="1337" y="941"/>
         </scene>
         <!--Video View Controller-->
         <scene sceneID="eYr-As-8X7">

@@ -27,7 +27,7 @@ class CameraRollCollectionViewController: UICollectionViewController, UICollecti
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		self.sessionManager = NewVimeoUploader.sharedInstance?.foregroundSessionManager
 		self.cameraRollAssetHelper = PHAssetHelper()
 		self.videoAssets = self.loadVideoAssets()
 		
@@ -159,7 +159,7 @@ class CameraRollCollectionViewController: UICollectionViewController, UICollecti
 //		navigationBar.navigationBar.barTintColor = UIColor.blue
 		let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 20, width: view.frame.size.width, height: 100)) // Offset by 20 pixels vertically to take the status bar into account
 		
-		//navigationBar.barTintColor = UIColor.black
+		navigationBar.barTintColor = UIColor.black
 		navigationBar.barStyle = .black
 		navigationBar.tintColor = .white
 		navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -188,8 +188,19 @@ class CameraRollCollectionViewController: UICollectionViewController, UICollecti
 		dismiss(animated: true, completion: nil)
 	}
 	
+//	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//
+//			let destinationController = segue.destination as? VideoSettingsViewController
+//
+//			destinationController.videoObject = selectedVideo
+//
+//	}
+	
 	func didSelect(_ asset: VIMPHAsset) {
-		assertionFailure("Subclasses must override")
+		let videoSettingsVC = VideoSettingsViewController(asset: asset)
+		let navigationController = UINavigationController(rootViewController: videoSettingsVC )
+		self.present(navigationController, animated: true, completion: nil)
+		
 	}
     
 }

@@ -60,7 +60,7 @@ class VideoSettingsViewController: UIViewController, UITextViewDelegate {
 		
 		//self.edgesForExtendedLayout = []
 		self.setupNavigationBar()
-		self.setupAndStartOperation()
+		//self.setupAndStartOperation()
 		
 		
 	}

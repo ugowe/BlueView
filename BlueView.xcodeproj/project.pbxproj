@@ -92,9 +92,9 @@
 			children = (
 				D8468F19212DE71C00AB47C4 /* VideoTableViewController.swift */,
 				D8D436A7212DC66A00821044 /* VideoViewController.swift */,
-				D811FCB02130A09B00BE3DC4 /* VideoSettingsViewController.swift */,
 				D867FEA52130547600F162B8 /* CameraRollCollectionViewController.swift */,
 				D867FEA62130547600F162B8 /* CameraRollCollectionViewController.xib */,
+				D811FCB02130A09B00BE3DC4 /* VideoSettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
