@@ -9,6 +9,7 @@
 import UIKit
 import VimeoNetworking
 import VimeoUpload
+import PromiseKit
 
 class VideoTableViewController: UITableViewController {
 	
@@ -35,6 +36,11 @@ class VideoTableViewController: UITableViewController {
 		super.viewWillAppear(animated)
 	}
 	
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		
+	}
+	
 	// MARK: - Setup
 	
 	private func setupAccountObservation() {
@@ -45,13 +51,13 @@ class VideoTableViewController: UITableViewController {
 			guard let strongSelf = self else { return }
 			
 			let request: Request<[VIMVideo]>
-			if VimeoClient.defaultClient.currentAccount?.isAuthenticatedWithUser() == true {
+			if VimeoClient.sharedClient.currentAccount?.isAuthenticatedWithUser() == true {
 				request = Request<[VIMVideo]>(path: "/me/videos")
 			} else {
 				request = Request<[VIMVideo]>(path: "/channels/staffpicks/videos")
 			}
 			
-			let _ = VimeoClient.defaultClient.request(request) { [weak self] result in
+			let _ = VimeoClient.sharedClient.request(request) { [weak self] result in
 				guard let strongSelf = self else { return }
 				
 				switch result {
@@ -59,10 +65,10 @@ class VideoTableViewController: UITableViewController {
 					strongSelf.videoArray = response.model
 					
 					if let nextPageRequest = response.nextPageRequest {
-						
+
 						print("Starting next page request")
-						let _ = VimeoClient.defaultClient.request(nextPageRequest) { [weak self] result in
-							
+						let _ = VimeoClient.sharedClient.request(nextPageRequest) { [weak self] result in
+
 							guard let strongSelf = self else { return }
 							if case .success(let response) = result {
 								print("Next page request completed")
@@ -84,11 +90,10 @@ class VideoTableViewController: UITableViewController {
 			strongSelf.navigationItem.title = request.path
 			strongSelf.updateLoginButton()
 		})
-		
 	}
 	
 	private func updateLoginButton() {
-		if VimeoClient.defaultClient.currentAccount?.isAuthenticatedWithUser() == true {
+		if VimeoClient.sharedClient.currentAccount?.isAuthenticatedWithUser() == true {
 			self.logInButton.title = "Log Out"
 		} else {
 			self.logInButton.title = "Log In"
@@ -101,23 +106,27 @@ class VideoTableViewController: UITableViewController {
 		// If the user is logged in, the button logs them out.
 		// If the user is logged out, the button launches the code grant authorization page
 		
-		let authenicationController = AuthenticationController(client: VimeoClient.defaultClient, appConfiguration: AppConfiguration.defaultConfiguration)
+		let authenicationController = AuthenticationController(client: VimeoClient.sharedClient, appConfiguration: AppConfiguration.defaultConfiguration)
 		
-		if VimeoClient.defaultClient.currentAccount?.isAuthenticatedWithUser() == true {
-			do {
-				try authenicationController.logOut()
-			} catch let error as NSError {
-				let title = "Couldn't Log Out"
-				let message = "Logging out failed: \(error.localizedDescription)"
-				let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-				let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-				alert.addAction(OKAction)
-				self.present(alert, animated: true, completion: nil)
-			}
-		} else {
-			let URL = authenicationController.codeGrantAuthorizationURL()
-			UIApplication.shared.open(URL, options: [:], completionHandler: nil)
+		authenicationController.accessToken(token: Secrets.accessToken) { account in
+			print(account)
 		}
+		
+//		if VimeoClient.sharedClient.currentAccount?.isAuthenticatedWithUser() == true {
+//			do {
+//				try authenicationController.logOut()
+//			} catch let error as NSError {
+//				let title = "Couldn't Log Out"
+//				let message = "Logging out failed: \(error.localizedDescription)"
+//				let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//				let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+//				alert.addAction(OKAction)
+//				self.present(alert, animated: true, completion: nil)
+//			}
+//		} else {
+//			let URL = authenicationController.codeGrantAuthorizationURL()
+//			UIApplication.shared.open(URL, options: [:], completionHandler: nil)
+//		}
 		
 	}
 	
@@ -151,6 +160,7 @@ class VideoTableViewController: UITableViewController {
 			let destinationController = segue.destination as? VideoViewController ,
 			let indexPath = self.tableView.indexPathForSelectedRow {
 			let selectedVideo = self.videoArray[indexPath.row]
+			let files = selectedVideo.files
 			destinationController.videoObject = selectedVideo
 		}
 	}

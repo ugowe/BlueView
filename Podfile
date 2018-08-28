@@ -9,6 +9,7 @@ def shared_pods
     pod 'VimeoNetworking', :git => 'git@github.com:vimeo/VimeoNetworking.git', :branch => 'develop'
     pod 'VimeoUpload', :git => 'git@github.com:vimeo/VimeoUpload.git', :branch => 'develop'
     pod 'PlayerKit'
+    pod 'PromiseKit', '~> 6.0'
 end
 
 target 'BlueView' do

@@ -32,8 +32,8 @@ class VideoViewController: UIViewController, PlayerDelegate {
 		player.delegate = self
 
 		self.addPlayerToView()
-		let video = self.videoObject
-		
+		configurePlayerView()
+
 //		let videoFile = videoObject?.files as! [[String:Any]]
 //		let firstVideoFile = videoFile[1]
 //		let videoLink = firstVideoFile["link"] as! String
@@ -45,7 +45,7 @@ class VideoViewController: UIViewController, PlayerDelegate {
 //		self.player.set(AVURLAsset(url: videoURL!))
 		
 	}
-	
+
 	// MARK: Setup
 	
 	private func addPlayerToView() {
@@ -55,12 +55,20 @@ class VideoViewController: UIViewController, PlayerDelegate {
 	}
 
 	// MARK: Actions
-	
-	
 
-	
 	func configurePlayerView() {
 		// Update the user interface for the video object
+		guard let videoObject = self.videoObject else { return }
+		let videoRequest = Request<VIMVideo>(path: videoObject.uri ?? "")
+		VimeoClient.sharedClient.request(videoRequest, completion: { result in
+			switch result {
+			case .success(let result):
+				print(result.json)
+				print(result.model.files?.first)
+			case .failure(let error):
+				print(error)
+			}
+		})
 	}
 
 	@IBAction func tappedPlay(_ sender: Any) {

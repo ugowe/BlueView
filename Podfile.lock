@@ -15,6 +15,15 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - PlayerKit (1.3.0)
+  - PromiseKit (6.3.4):
+    - PromiseKit/CorePromise (= 6.3.4)
+    - PromiseKit/Foundation (= 6.3.4)
+    - PromiseKit/UIKit (= 6.3.4)
+  - PromiseKit/CorePromise (6.3.4)
+  - PromiseKit/Foundation (6.3.4):
+    - PromiseKit/CorePromise
+  - PromiseKit/UIKit (6.3.4):
+    - PromiseKit/CorePromise
   - VimeoNetworking (3.2.0):
     - AFNetworking (= 3.1.0)
   - VimeoUpload (1.0.2):
@@ -22,6 +31,7 @@ PODS:
 
 DEPENDENCIES:
   - PlayerKit
+  - PromiseKit (~> 6.0)
   - "VimeoNetworking (from `git@github.com:vimeo/VimeoNetworking.git`, branch `develop`)"
   - "VimeoUpload (from `git@github.com:vimeo/VimeoUpload.git`, branch `develop`)"
 
@@ -29,6 +39,7 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AFNetworking
     - PlayerKit
+    - PromiseKit
 
 EXTERNAL SOURCES:
   VimeoNetworking:
@@ -49,9 +60,10 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   PlayerKit: b23b30a9fe306fb8790dfd1a9f91352d38163c84
+  PromiseKit: e1425568123ec844a944c93f2bcb29d511d39cf5
   VimeoNetworking: cef00b867495a61e9b5e10f5a6b309d82a200c02
   VimeoUpload: d737f14e1bb91b38ea7755841d799ea0d0525524
 
-PODFILE CHECKSUM: 3ab46d8a79e730b5c07f589ea1766e42032b6054
+PODFILE CHECKSUM: 56b458c17185027fa2b029ed4f6ae09e228b55dd
 
 COCOAPODS: 1.5.3

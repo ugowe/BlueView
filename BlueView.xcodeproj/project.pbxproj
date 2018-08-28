@@ -17,6 +17,7 @@
 		D8468F20212F128800AB47C4 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8468F1F212F128800AB47C4 /* Secrets.swift */; };
 		D867FEA72130547600F162B8 /* CameraRollCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D867FEA52130547600F162B8 /* CameraRollCollectionViewController.swift */; };
 		D867FEA82130547600F162B8 /* CameraRollCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D867FEA62130547600F162B8 /* CameraRollCollectionViewController.xib */; };
+		D87303D92135A25900C38055 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87303D82135A25900C38055 /* NetworkManager.swift */; };
 		D8D436A6212DC66A00821044 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D436A5212DC66A00821044 /* AppDelegate.swift */; };
 		D8D436A8212DC66A00821044 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D436A7212DC66A00821044 /* VideoViewController.swift */; };
 		D8D436AB212DC66A00821044 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8D436A9212DC66A00821044 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		D8468F1F212F128800AB47C4 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		D867FEA52130547600F162B8 /* CameraRollCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraRollCollectionViewController.swift; sourceTree = "<group>"; };
 		D867FEA62130547600F162B8 /* CameraRollCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CameraRollCollectionViewController.xib; sourceTree = "<group>"; };
+		D87303D82135A25900C38055 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		D8D436A2212DC66A00821044 /* BlueView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlueView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8D436A5212DC66A00821044 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8D436A7212DC66A00821044 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				D8D436A5212DC66A00821044 /* AppDelegate.swift */,
 				D8468F1D212DFBA300AB47C4 /* NewVimeoUploader.swift */,
 				D8468F1B212DF0E200AB47C4 /* VimeoClient+Shared.swift */,
+				D87303D82135A25900C38055 /* NetworkManager.swift */,
 				D8468F1F212F128800AB47C4 /* Secrets.swift */,
 				D867FEA4213052D500F162B8 /* ViewControllers */,
 				D867FEA3213052D000F162B8 /* Views */,
@@ -213,6 +216,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-BlueView/Pods-BlueView-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/PlayerKit/PlayerKit.framework",
+				"${BUILT_PRODUCTS_DIR}/PromiseKit/PromiseKit.framework",
 				"${BUILT_PRODUCTS_DIR}/VimeoNetworking/VimeoNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/VimeoUpload/VimeoUpload.framework",
 			);
@@ -220,6 +224,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlayerKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PromiseKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VimeoNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VimeoUpload.framework",
 			);
@@ -255,6 +260,7 @@
 			files = (
 				D8468F1C212DF0E200AB47C4 /* VimeoClient+Shared.swift in Sources */,
 				D8468F20212F128800AB47C4 /* Secrets.swift in Sources */,
+				D87303D92135A25900C38055 /* NetworkManager.swift in Sources */,
 				D867FEA72130547600F162B8 /* CameraRollCollectionViewController.swift in Sources */,
 				D8468F1E212DFBA300AB47C4 /* NewVimeoUploader.swift in Sources */,
 				D8D436A8212DC66A00821044 /* VideoViewController.swift in Sources */,

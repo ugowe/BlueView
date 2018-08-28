@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E1119C288CD14473D8454DEEC3214506"
+               BlueprintIdentifier = "AB7D3608E67299DFACC0E28E0EBA4807"
                BlueprintName = "VimeoNetworking"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "VimeoNetworking.framework">
